@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aburto Castro y Asociados - Oficina de Leyes</title>
+    
+    <!-- Ícono de la página -->
+    <link rel="icon" href="src/WhatsApp Image 2026-09-28 at 3.56.40 PM.jpeg" type="image/jpeg">
+    
+    <!-- Font Awesome para los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Prata -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0b1320; /* Azul oscuro */
+            --secondary-color: #d4af37; /* Dorado */
+            --text-color: #333;
+            --bg-light: #f4f4f4;
+            --bg-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prata', serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo img {
+            height: 60px;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section con Parallax */
+        .hero {
+            background-image: linear-gradient(rgba(11, 19, 32, 0.8), rgba(11, 19, 32, 0.85)), url('src/WhatsApp Image 2026-09-28 at 3.56.41 PM.jpeg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+
+        /* Adornos laterales */
+        .side-decor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 150px;
+        }
+
+        .side-decor hr {
+            width: 100%;
+            border: none;
+            border-top: 2px solid white;
+        }
+
+        .dots-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .dots-row .dot {
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        /* Caja central */
+        .center-box {
+            position: relative;
+            padding: 50px 60px 40px;
+            text-align: center;
+            border: 1px solid white;
+        }
+
+        .center-box::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+        }
+
+        /* Monograma AC - Ajustado para bajar la C */
+        .monogram {
+            position: relative;
+            height: 170px; /* Aumentado para dar espacio a la C más baja */
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .letter-a {
+            font-size: 8rem;
+            color: white;
+            line-height: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-65%) translateY(-15px); /* Subida un poco y centrada */
+            z-index: 2;
+        }
+
+        .letter-c {
+            font-size: 7.5rem;
+            color: white;
+            line-height: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-35%) translateY(35px); /* Bajada significativamente */
+            z-index: 3; /* Colocada por encima de la pierna de la A para el efecto de la imagen */
+        }
+
+        .brand-name {
+            font-size: 1.3rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        .sub-brand {
+            font-size: 1rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #fce28b;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* General Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 60px 5%;
+            background-color: var(--bg-light);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--secondary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
+        .card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--primary-color); }
+        .card p { font-size: 1.1rem; }
+
+        /* Detailed Services Section */
+        .detailed-services {
+            padding: 60px 5%;
+            background-color: var(--bg-white);
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .detail-row:hover { transform: scale(1.01); }
+        .detail-row.reverse { flex-direction: row-reverse; }
+
+        .detail-icon-container {
+            flex: 1;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            min-height: 300px;
+        }
+
+        .detail-icon-container i { font-size: 6rem; color: var(--secondary-color); }
+        .detail-content { flex: 2; padding: 40px; }
+        .detail-content h3 {
+            color: var(--primary-color); font-size: 2.2rem; margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color); display: inline-block; padding-bottom: 5px;
+        }
+        .detail-content ul { list-style: none; }
+        .detail-content ul li {
+            margin-bottom: 15px; font-size: 1.2rem; display: flex; align-items: flex-start; gap: 15px;
+        }
+        .detail-content ul li i { color: var(--secondary-color); margin-top: 5px; }
+
+        /* Carousel Section */
+        .carousel-section {
+            background-color: var(--primary-color); 
+            padding: 60px 0; text-align: center;
+        }
+        .carousel-section h2 { color: var(--secondary-color); font-size: 2.8rem; margin-bottom: 40px; padding: 0 20px; }
+        .carousel-container { width: 100%; position: relative; background-color: #050a12; overflow: hidden; }
+        .carousel-slide { display: none; width: 100%; text-align: center; padding: 20px 0; }
+        .carousel-slide.active { display: block; }
+        .carousel-slide img { width: 100%; max-height: 500px; object-fit: contain; display: block; margin: 0 auto; }
+        .prev, .next {
+            cursor: pointer; position: absolute; top: 50%; width: auto; padding: 20px;
+            margin-top: -30px; color: white; font-size: 30px; transition: 0.3s ease;
+            background-color: rgba(0,0,0,0.7); border: none; z-index: 10; font-family: Arial, sans-serif;
+        }
+        .next { right: 0; border-radius: 5px 0 0 5px; }
+        .prev { left: 0; border-radius: 0 5px 5px 0; }
+        .prev:hover, .next:hover { background-color: var(--secondary-color); color: var(--primary-color); }
+
+        /* Parallax Divider Section */
+        .parallax-divider {
+            background-image: linear-gradient(rgba(11, 19, 32, 0.9), rgba(11, 19, 32, 0.85)), url('src/WhatsApp Image 2026-09-28 at 3.56.41 PM (1).jpeg');
+            background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+            padding: 100px 20px; text-align: center; color: white;
+            border-top: 4px solid var(--secondary-color); border-bottom: 4px solid var(--secondary-color);
+        }
+        .parallax-divider h2 { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
+        .parallax-divider p { font-size: 1.4rem; max-width: 700px; margin: 0 auto 40px; }
+
+        /* Map Section */
+        .map-section { padding: 60px 5%; background-color: var(--bg-light); text-align: center; }
+        .map-container {
+            max-width: 1000px; margin: 0 auto; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 2px solid var(--secondary-color);
+        }
+        .map-info { margin-top: 25px; font-size: 1.2rem; color: var(--primary-color); }
+
+        /* Contact & Footer */
+        footer { background-color: var(--primary-color); color: white; padding: 60px 5% 30px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h3 { color: var(--secondary-color); margin-bottom: 25px; font-size: 1.8rem; }
+        .footer-col p { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-size: 1.1rem; }
+        .contact-group-title {
+            margin-top: 25px; margin-bottom: 10px; color: var(--secondary-color);
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .whatsapp-links, .phone-links { display: flex; gap: 15px; flex-wrap: wrap; }
+        .whatsapp-links a, .phone-links a {
+            padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 1.1rem;
+            display: flex; align-items: center; gap: 10px; transition: opacity 0.3s; font-family: Arial, sans-serif;
+        }
+        .whatsapp-links a { color: white; background: #25d366; }
+        .phone-links a { color: var(--primary-color); background: var(--secondary-color); font-weight: bold; }
+        .whatsapp-links a:hover, .phone-links a:hover { opacity: 0.8; }
+
+        /* Botones Flotantes */
+        .whatsapp-float, .phone-float {
+            position: fixed; width: 65px; height: 65px; right: 40px; border-radius: 50px;
+            text-align: center; box-shadow: 2px 2px 5px rgba(0,0,0,0.3); z-index: 100;
+            display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s;
+        }
+        .whatsapp-float { bottom: 40px; background-color: #25d366; color: #FFF; font-size: 35px; }
+        .phone-float { bottom: 125px; background-color: var(--secondary-color); color: var(--primary-color); font-size: 30px; }
+        .whatsapp-float:hover, .phone-float:hover { transform: scale(1.1); }
+
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 1.1rem; }
+
+        /* =========================================
+           MEDIA QUERIES (RESPONSIVE DESIGN)
+        ========================================= */
+        @media screen and (max-width: 900px) {
+            .side-decor { display: none; }
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav {
+                position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--primary-color);
+                display: none; flex-direction: column; padding: 20px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+            }
+            nav.active { display: flex; }
+            nav ul { flex-direction: column; align-items: center; gap: 20px; }
+
+            .hero, .parallax-divider { background-attachment: scroll; }
+            
+            .center-box { padding: 40px 20px; }
+            
+            /* Ajuste de posiciones de letras para móviles */
+            .monogram { height: 130px; }
+            .letter-a { font-size: 6rem; transform: translateX(-65%) translateY(-10px); }
+            .letter-c { font-size: 5.5rem; transform: translateX(-35%) translateY(25px); }
+            
+            .brand-name { font-size: 1rem; white-space: normal; }
+            .sub-brand { font-size: 0.8rem; }
+
+            .section-title { font-size: 2.2rem; }
+            .parallax-divider h2 { font-size: 2.2rem; }
+            .detail-row, .detail-row.reverse { flex-direction: column; text-align: center; }
+            .detail-icon-container { min-height: 200px; width: 100%; padding: 30px; }
+            .detail-content ul li { text-align: left; }
+            .carousel-slide img { max-height: 400px; }
+            
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 28px; }
+            .phone-float { width: 55px; height: 55px; bottom: 90px; right: 20px; font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="src/WhatsApp Image 2026-09-28 at 3.56.40 PM.jpeg" alt="Logo Aburto Castro y Asociados">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#detalles">Especialidades</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (NUEVO DISEÑO AC) -->
+    <section id="inicio" class="hero">
+        <div class="hero-layout">
+            
+            <!-- Adorno Lateral Izquierdo -->
+            <div class="side-decor">
+                <hr>
+                <div class="dots-row">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <div class="dots-row">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <hr>
+            </div>
+
+            <!-- Caja Central Logo Textual -->
+            <div class="center-box">
+                <div class="monogram">
+                    <span class="letter-a">A</span>
+                    <span class="letter-c">C</span>
+                </div>
+                <div class="brand-name">ABURTO CASTRO Y ASOCIADOS</div>
+                <div class="sub-brand">OFICINA DE LEYES</div>
+            </div>
+
+            <!-- Adorno Lateral Derecho -->
+            <div class="side-decor">
+                <hr>
+                <div class="dots-row">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <div class="dots-row">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+        
+        <a href="#contacto" class="btn">Agenda tu Consulta</a>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section id="servicios" class="services">
+        <h2 class="section-title">Nuestros Servicios Legales</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-balance-scale"></i>
+                <h3>Casos Civiles y Familia</h3>
+                <p>Protección patrimonial, herencias, divorcios, pensión de alimentos y recuperación de cartera.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Gestión Empresarial</h3>
+                <p>Asesoría legal, constitución de sociedades y seguridad jurídica integral para tu negocio.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-signature"></i>
+                <h3>Notaría y Registros</h3>
+                <p>Legalización de propiedades y vehículos, poderes legales y trámites mercantiles (Actas, Diario, Mayor).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
+    <section id="detalles" class="detailed-services">
+        <h2 class="section-title">Especialidades a Detalle</h2>
+
+        <div class="detail-row">
+            <div class="detail-icon-container"><i class="fas fa-home"></i></div>
+            <div class="detail-content">
+                <h3>Juicios Civiles</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>De Propiedades:</strong> Protegemos y defendemos tus derechos sobre bienes inmuebles.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Recuperación de Cartera:</strong> Recuperamos lo que te deben de manera efectiva.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Ejecución de Contratos:</strong> Hacemos cumplir los contratos y obligaciones pactadas.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Declaratoria de Herederos:</strong> Te acompañamos en el proceso legal para hacer valer tus derechos hereditarios.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-row reverse">
+            <div class="detail-icon-container"><i class="fas fa-users"></i></div>
+            <div class="detail-content">
+                <h3>Juicios de Familia</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Pensión de Alimentos:</strong> Trámites justos para garantizar el bienestar de tus hijos.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Divorcios:</strong> Soluciones legales con sensibilidad, agilidad y profesionalismo.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Cuido y Crianza:</strong> Protección legal priorizando los derechos y la estabilidad de los menores.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-icon-container"><i class="fas fa-building"></i></div>
+            <div class="detail-content">
+                <h3>Servicios Jurídicos Empresariales</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Asesoría Legal Estratégica:</strong> Soluciones que impulsan el crecimiento continuo de tu empresa.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Soluciones Efectivas:</strong> Tratamiento personalizado para los retos legales de tu negocio.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Seguridad Jurídica:</strong> Garantizamos que cada operación de tu empresa cumpla con la ley vigente.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-row reverse">
+            <div class="detail-icon-container"><i class="fas fa-book"></i></div>
+            <div class="detail-content">
+                <h3>Trámites Mercantiles Rápidos y Seguros</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Libro Mayor:</strong> Trámite legalizado de 200 páginas.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Libro Diario:</strong> Trámite legalizado de 200 páginas.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Libro de Actas:</strong> Trámite legalizado de 200 páginas.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Tu negocio en buenas manos:</strong> Atención profesional personalizada y confiable.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section id="galeria" class="carousel-section">
+        <h2>Material Informativo</h2>
+        <div class="carousel-container">
+            <div class="carousel-slide active"><img src="src/WhatsApp Image 2026-09-28 at 3.56.42 PM (4).jpeg" alt="Juicios de Familia"></div>
+            <div class="carousel-slide"><img src="src/WhatsApp Image 2026-09-28 at 3.56.42 PM (1).jpeg" alt="Juicios Civiles"></div>
+            <div class="carousel-slide"><img src="src/WhatsApp Image 2026-09-28 at 3.56.42 PM (2).jpeg" alt="Servicios Jurídicos Empresariales"></div>
+            <div class="carousel-slide"><img src="src/WhatsApp Image 2026-09-28 at 3.56.42 PM (3).jpeg" alt="Nuestros Servicios Legales"></div>
+            <div class="carousel-slide"><img src="src/WhatsApp Image 2026-09-28 at 3.56.42 PM (5).jpeg" alt="Consultas Legales"></div>
+            <div class="carousel-slide"><img src="src/WhatsApp Image 2026-09-28 at 3.56.42 PM.jpeg" alt="Trámites Mercantiles"></div>
+            <div class="carousel-slide"><img src="src/WhatsApp Image 2026-09-28 at 3.56.43 PM (1).jpeg" alt="Lista de Servicios Generales"></div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sección Parallax Divisoria -->
+    <section class="parallax-divider">
+        <h2>Compromiso, Experiencia y Resultados</h2>
+        <p>Acompañamiento legal integral para garantizar su tranquilidad en todo momento.</p>
+        <a href="#contacto" class="btn">Haga sus consultas con nosotros</a>
+    </section>
+
+    <!-- Map Section -->
+    <section id="ubicacion" class="map-section">
+        <h2 class="section-title">Nuestra Ubicación</h2>
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Hospital%20Monte%20Espa%C3%B1a,%20Ciudad%20Sandino,%20Managua&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <p class="map-info">
+            <i class="fas fa-map-marker-alt" style="color: var(--secondary-color);"></i> 
+            Plaza Padre Miguel, frente Hospital Monte España, Ciudad Sandino, Managua, Nicaragua.
+        </p>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="src/WhatsApp Image 2026-09-28 at 3.56.41 PM (1).jpeg" alt="AC Abogados Logo" style="height: 120px; margin-bottom: 25px;">
+                <p>Soluciones legales confiables y efectivas a tu alcance. Compromiso, experiencia y resultados.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Contáctanos</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Plaza Padre Miguel, frente Hospital Monte España, Ciudad Sandino, Managua, Nicaragua.</p>
+                <p><i class="fas fa-envelope"></i> gfacmaximum@hotmail.com</p>
+                
+                <h4 class="contact-group-title">Mensajes por WhatsApp:</h4>
+                <div class="whatsapp-links">
+                    <a href="https://wa.me/50583804273?text=Consultado%20desde%20mi%20Web" target="_blank"><i class="fab fa-whatsapp"></i> Lic. Aburto</a>
+                    <a href="https://wa.me/50589726976?text=Consultado%20desde%20mi%20Web" target="_blank"><i class="fab fa-whatsapp"></i> Asesor</a>
+                </div>
+
+                <h4 class="contact-group-title">Llamada Directa:</h4>
+                <div class="phone-links">
+                    <a href="tel:+50583804273"><i class="fas fa-phone-alt"></i> 8380-4273</a>
+                    <a href="tel:+50589726976"><i class="fas fa-phone-alt"></i> 8972-6976</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Aburto Castro y Asociados. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botones Flotantes -->
+    <a href="tel:+50583804273" class="phone-float" title="Llamar ahora"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/50583804273?text=Consultado%20desde%20mi%20Web" class="whatsapp-float" target="_blank" title="Enviar mensaje por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- JavaScript -->
+    <script>
+        // Carrusel
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".carousel-slide");
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            if (index >= slides.length) slideIndex = 0;
+            else if (index < 0) slideIndex = slides.length - 1;
+            else slideIndex = index;
+            slides[slideIndex].classList.add("active");
+        }
+
+        function changeSlide(step) { showSlide(slideIndex + step); }
+        setInterval(() => { changeSlide(1); }, 4500);
+
+        // Menú Hamburguesa
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu ul li a');
+
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 768) { navMenu.classList.remove('active'); }
+            });
+        });
+    </script>
+</body>
+</html>
